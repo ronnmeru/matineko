@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :users,only:[:index,:show,:edit,:update]
   get 'unsubscribe' => 'users#unsubscribe'
   patch 'withdraw' => 'users#withdraw'
-  resources :posts,only:[:show,:new,:edit,:create,:destroy]
+  resources :posts,only:[:show,:new,:edit,:create,:update,:destroy]
   get 'confirm' => 'posts#confirm'
   post 'complete' => 'posts#complete'
   resources :likes,only:[:create,:destroy]

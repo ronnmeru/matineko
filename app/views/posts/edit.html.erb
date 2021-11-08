@@ -1,2 +1,29 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<div class="container  px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3 col-mx-3">
+<h1>Editing Book</h1>
+<%= form_with model:@post, local:true do |f| %>
+<% if @post.errors.any? %>
+  <div class="alert alert-warning">
+  <h2><%= @post.errors.count %> errors prohibited this book from being saved:</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>title</p>
+  <%= f.text_field :title %>
+
+  <p>Opinion</p>
+  <%= f.text_area :content %>
+
+ <div> <%= f.submit 'Update Book',class:"btn btn-success" %></div>
+<% end %>
+ <%= link_to "Show", post_path(@post.id) %>
+ <%= link_to "Back",  post_path(@post.id) %>
+         </div>
+    </div>
+</div>
+

@@ -9,59 +9,51 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @book.user_id = current_user.id
+    @post_new = Post.new(post_params)
+    @post_new.user_id = current_user.id
     @user = current_user
-    @books = Book.all
-   if @book.save
+    @posts = Book.all
+   if @post_new.save
       flash[:notice]= 'You have created book successfully.'
-    redirect_to book_path(@book.id)
+    redirect_to post_path(@post_new.id)
    else
-    @book_each=Book.all
-    render action: :index
+    render action: :show
    end
   end
 
   def update
-    @book = Book.find(params[:id])
-    @book.user_id = current_user.id
+    @post = Post.find(params[:id])
+    @post.user_id = current_user.id
     @user = current_user
-    if  @book.update(book_params)
+    if  @post.update(post_params)
        flash[:update]='You have updated book successfully.'
-       redirect_to book_path(@book.id)
+       redirect_to post_path(@post.id)
     else
        render action: :edit
     end
   end
 
-
-  def index
-    @book = Book.new
-    @books=Book.all
-    @user = current_user
-  end
-
   def show
-   @book=Book.find(params[:id])
-   @book_new = Book.new
-   @user = @book.user
+   @post=Post.find(params[:id])
+   @post = Post.new
+   @user = @post.user
   end
 
   def edit
-    @book=Book.find(params[:id])
-    if @book.user != current_user
-       redirect_to  books_path
+    @post=Post.find(params[:id])
+    if @post.user != current_user
+       redirect_to  post_path(@post.id)
     end
   end
 
   def destroy
-   @book=Book.find(params[:id])
-   @book.destroy
-   redirect_to books_path
+   @post=Post.find(params[:id])
+   @post.destroy
+   redirect_to post_path
   end
   private
 
-  def book_params
-    params.require(:book).permit(:title,:body)
+  def post_params
+    params.require(:post).permit(:title,:content)
   end
 end
