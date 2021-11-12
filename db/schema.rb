@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_01_114519) do
+ActiveRecord::Schema.define(version: 2021_11_11_112748) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -27,19 +27,13 @@ ActiveRecord::Schema.define(version: 2021_11_01_114519) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "post_images", force: :cascade do |t|
-    t.integer "post_id", null: false
-    t.string "image_id", default: "", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "title", default: "", null: false
     t.text "content", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -75,9 +69,9 @@ ActiveRecord::Schema.define(version: 2021_11_01_114519) do
     t.string "reset_password_token", default: "", null: false
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name", default: "", null: false
-    t.text "introduction", default: "", null: false
-    t.string "image_id", default: "", null: false
+    t.string "name"
+    t.text "introduction"
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -9,13 +9,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post_new = Post.new(post_params)
-    @post_new.user_id = current_user.id
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
     @user = current_user
-    @posts = Book.all
-   if @post_new.save
-      flash[:notice]= 'You have created book successfully.'
-    redirect_to post_path(@post_new.id)
+    @posts = Post.all
+   if @post.save
+    flash[:notice]= 'You have created book successfully.'
+     redirect_to post_path(@post.id)
    else
     render action: :show
    end
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
 
   def show
    @post=Post.find(params[:id])
-   @post = Post.new
+   @post_new = Post.new
    @user = @post.user
   end
 
@@ -54,6 +54,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title,:content)
+    params.require(:post).permit(:title,:content,:image)
   end
 end

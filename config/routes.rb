@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   get 'homes/top'
   get 'homes/about'
-  get 'post_images/index'
-  get 'post_images/show'
   get 'comments/index'
   get 'posts/show'
   get 'posts/new'
