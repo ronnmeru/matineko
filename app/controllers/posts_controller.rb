@@ -12,11 +12,14 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @user = current_user
-    @posts = Post.all
+
+
    if @post.save
+
     flash[:notice]= 'You have created book successfully.'
      redirect_to post_path(@post.id)
    else
+
     render action: :show
    end
   end

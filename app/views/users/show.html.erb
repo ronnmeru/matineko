@@ -62,7 +62,7 @@
                   <%= attachment_image_tag post_each.user, :image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
                   <% end %></td>
               <td><%= link_to post_each.title, post_path(post_each.id) %></td>
-              <td><%= book_each.content %></td>
+              <td><%= post_each.content %></td>
             </tr>
           <% end %>
         </tbody>
