@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     @user = current_user
    if @post.save
     flash[:notice]= 'You have created book successfully.'
-     redirect_to post_path(@post.id)
+     redirect_to post_pa
    else
     render action: :show
    end
@@ -43,6 +43,8 @@ class PostsController < ApplicationController
    @post=Post.find(params[:id])
    @post_new = Post.new
    @user = @post.user
+   @comments = @post.comments  #投稿詳細に関連付けてあるコメントを全取得
+   @comment = current_user.comments.new  #投稿詳細画面でコメントの投稿を行うので、formのパラメータ用にCommentオブジェクトを取得
   end
 
   def edit
