@@ -1,7 +1,7 @@
 <div class="container  px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3 col-mx-3">
-<h1>Editing Book</h1>
+<h1>投稿編集画面</h1>
 <%= form_with model:@post, local:true do |f| %>
 <% if @post.errors.any? %>
   <div class="alert alert-warning">
@@ -13,17 +13,19 @@
     </ul>
   </div>
   <% end %>
-  <p>title</p>
-  <%= f.text_field :title %>
 
-  <p>Opinion</p>
-  <%= f.text_area :content %>
+      <p>投稿画像</p>
+      <%= f.attachment_field :image %>
+      <p>タイトル</p>
+      <%= f.text_field :title %>
+      <p>イントロダクション</p>
+      <%= f.text_area :content %>
 
  <div> <%= f.submit 'Update Book',class:"btn btn-success" %></div>
 <% end %>
  <%= link_to "Show", post_path(@post.id) %>
  <%= link_to "Back",  post_path(@post.id) %>
-         </div>
+     </div>
     </div>
 </div>
 

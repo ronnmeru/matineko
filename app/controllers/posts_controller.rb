@@ -4,6 +4,13 @@ class PostsController < ApplicationController
  def top
  end
 
+ def index
+   @post_new = Post.new
+   @post=Post.all
+   @user = current_user
+ end
+
+
   def new
       @post = Post.new
   end
@@ -12,14 +19,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @user = current_user
-
-
    if @post.save
-
     flash[:notice]= 'You have created book successfully.'
      redirect_to post_path(@post.id)
    else
-
     render action: :show
    end
   end
@@ -52,11 +55,11 @@ class PostsController < ApplicationController
   def destroy
    @post=Post.find(params[:id])
    @post.destroy
-   redirect_to post_path
+   redirect_to posts_path
   end
   private
 
   def post_params
-    params.require(:post).permit(:title,:content,:image)
+    params.require(:post).permit(:title,:content,:image).merge(user_id: current_user.id)
   end
 end

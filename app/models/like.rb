@@ -1,5 +1,5 @@
 class Like < ApplicationRecord
-belongs_to :posts
-belongs_to :users
+belongs_to :post
+belongs_to :user
 
 end
