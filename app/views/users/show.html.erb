@@ -50,6 +50,7 @@
       <table class="table">
          <thead>
           <tr>
+            <th>User</th>
             <th>Title</th>
             <th>Opinion</th>
             <th colspan="3"></th>
@@ -63,6 +64,10 @@
                   <% end %></td>
               <td><%= link_to post_each.title, post_path(post_each.id) %></td>
               <td><%= post_each.content %></td>
+              <td id="likes_buttons_<%= post_each.id %>">
+              <%= post_each.likes.count %>
+              <i class="fa fa-heart unlike-btn"></i>
+              </td>
             </tr>
           <% end %>
         </tbody>
