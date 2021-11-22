@@ -34,7 +34,7 @@
         </ul>
         </div>
       <% end %>
-    
+
       <p >投稿画像</p>
       <%= f.attachment_field :image %>
       <p>タイトル</p>
@@ -43,9 +43,10 @@
       <%= f.text_area :content %>
       <div class="btn">
         <%= f.submit 'Create Book',class:"btn btn-success" %>
-      <% end %>
       </div>
+      <% end %>
     </div>
+
     <div class="col-md-8 offset-md-1">
       <h2>Users</h2>
       <table class="table">
