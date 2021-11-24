@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
  def index
    @post_new = Post.new
-   @post=Post.all
+   @post = @search_post || Post.all \\
    @user = current_user
  end
 
@@ -60,6 +60,9 @@ class PostsController < ApplicationController
    @post.destroy
    redirect_to posts_path
   end
+  
+
+
   private
 
   def post_params

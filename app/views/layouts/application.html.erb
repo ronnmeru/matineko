@@ -37,6 +37,13 @@
               <li class="nav-item">
                 <%= link_to "logout", destroy_user_session_path,method: :delete,class:"fas fa-sign-out-alt nav-link text-light"  %>
               </li>
+              <li class="search-form">
+                <%= search_form_for @search, url: posts_path do |f| %>
+                  <dt><%= f.text_field :title_cont ,placeholder: 'タイトルを入力...' %></dt>
+                  <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+                <% end %>
+              </li>
+
             </ul>
          </div>
           </div>
