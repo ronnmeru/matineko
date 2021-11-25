@@ -19,6 +19,11 @@
   <%= render "likes/like", post: post %>
 </td>
 
+<td class="label label-primary">
+  <% post.tags.each do |tag|%>
+      <%=  tag.name%>
+  <%end%>
+</td>
 <td>
   <%= link_to 'Show', post %>
 </td>

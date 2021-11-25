@@ -41,6 +41,8 @@
       <%= f.text_field :title %>
       <p>イントロダクション</p>
       <%= f.text_area :content %>
+      <p>タグ</p>
+       <%= f.text_field :tag_list, value: @post_new.tag_list.join(','), class: "form-control" %>
       <div class="btn">
         <%= f.submit 'Create Book',class:"btn btn-success" %>
             <% end %>
@@ -56,6 +58,7 @@
                         <th>Title</th>
                         <th>Opinion</th>
                         <th></th>
+                        <th>tag</th>
                         <th></th>
                         <th></th>
                         <th></th>

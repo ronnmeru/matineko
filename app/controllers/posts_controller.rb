@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
  def index
    @post_new = Post.new
-   @post = @search_post || Post.all \\
+   @post = @search_post || Post.all
    @user = current_user
  end
 
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     @user = current_user
    if @post.save
     flash[:notice]= 'You have created book successfully.'
-     redirect_to post_pa
+     redirect_to posts_path
    else
     render action: :show
    end
@@ -60,12 +60,12 @@ class PostsController < ApplicationController
    @post.destroy
    redirect_to posts_path
   end
-  
+
 
 
   private
 
   def post_params
-    params.require(:post).permit(:title,:content,:image).merge(user_id: current_user.id)
+    params.require(:post).permit(:title,:content,:image,:tag_list).merge(user_id: current_user.id)
   end
 end
