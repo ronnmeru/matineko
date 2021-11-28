@@ -1,6 +1,6 @@
 
 
-<td><%= link_to user_path(post) do%>
+<td><%= link_to users_path(post) do%>
    <%= attachment_image_tag post.user, :image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %><% end %>
 </td>
 
@@ -21,7 +21,7 @@
 
 <td class="label label-primary">
   <% post.tags.each do |tag|%>
-      <%=  tag.name%>
+     <%= link_to "#{tag.name}(#{tag.taggings_count})", posts_path(tag: tag.name), class: "label label-default" %>
   <%end%>
 </td>
 <td>

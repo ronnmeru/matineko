@@ -8,6 +8,15 @@ class PostsController < ApplicationController
    @post_new = Post.new
    @post = @search_post || Post.all
    @user = current_user
+   @tags = ActsAsTaggableOn::Tag.all
+    # タグの一覧表示
+
+   if params[:tag]
+      @post = Post.tagged_with(params[:tag])
+      # タグ検索時にそのタグずけしているものを表示
+   else
+      @post = Post.all
+   end
  end
 
 
