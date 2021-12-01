@@ -44,10 +44,20 @@ class UsersController < ApplicationController
     end
   end
 
+def  withdraw
+     current_user.update(is_deleted: true)
+     reset_session
+     redirect_to root_path
+end
+
+def usubscribe
+end
+
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :image,:introduction)
+    params.require(:user).permit(:name, :image,:introduction,:is_deleted)
   end
 
 end
