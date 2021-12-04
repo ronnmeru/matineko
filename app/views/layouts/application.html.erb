@@ -16,9 +16,9 @@
 
 
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-light"style="background-color: #008080">
         <div class="container">
-           <span class="navbar-brand"> <%= link_to'matineko',homes_about_path,class:"text-light" %></span>
+           <span class="navbar-bra"> <%= link_to'matineko',homes_about_path,class:"fas fa-cat nav-link text-light" %></span>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
           </button>
@@ -63,7 +63,7 @@
         <%= link_to "About",homes_about_path,class:"fas fa-link nav-link text-light"%>
       </li>
       <li class="nav-item">
-        <%= link_to "sign up", new_user_registration_path,class:"fas fa-user-plus nav link text-light" %>
+        <%= link_to "sign up", new_user_registration_path,class:"fas fa-user-plus nav-link text-light" %>
       </li>
       <li class="nav-item">
         <%= link_to "login", new_user_session_path,class:"fas fa-sign-in-alt nav-link text-light" %>
