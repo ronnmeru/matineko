@@ -1,2 +1,21 @@
-<h1>Homes#about</h1>
-<p>Find me in app/views/homes/about.html.erb</p>
+<div id="carouselWithControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item">
+       <%= image_tag "carousel-slide-1.jpeg" ,class:"d-block", alt:"Slide 1",width:"600px" %>
+    </div>
+    <div class="carousel-item active">
+      <%= image_tag "carousel-slide-2.jpeg" ,class:"d-block", alt:"Slide 2", width:"1500px" %>
+    </div>
+    <div class="carousel-item">
+       <%= image_tag "carousel-slide-3.jpeg" ,class:"d-block", alt:"Slide 3",width:"300px" %>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselWithControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselWithControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
