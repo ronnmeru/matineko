@@ -20,5 +20,21 @@
 @import "slick-theme";
 @import "slick";
 
- 
 
+.fa-arrow-alt-circle-left {
+  font-size: 50px;
+  position: absolute;
+  z-index: 100;
+  left: 0px;
+  top: 300px;
+  color: aliceblue;
+}
+
+.fa-arrow-alt-circle-right {
+  font-size: 50px;
+  position: absolute;
+  z-index: 100;
+  right: 0px;
+  top: 300px;
+  color: aliceblue;
+}

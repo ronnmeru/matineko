@@ -35,9 +35,9 @@
                 <%= link_to 'User', users_path,class:"fas fa-user nav-link text-light" %>
               </li>
               <li class="nav-item">
-                <%= link_to 'Post', posts_path,class:"fas fa-post nav-link text-light" %>
+                <%= link_to 'Post', posts_path,class:"fas fa-paper-plane nav-link text-light" %>
               </li class="nav-item">
-                <%= link_to 'Customer form', inquiry_path,class:"fas fa-post nav-link text-light" %>
+                <%= link_to 'Inquiry', inquiry_path,class:"fas fa-clipboard-list nav-link text-light" %>
               <li>
 
               </li>
@@ -46,8 +46,10 @@
               </li>
               <li class="search-form">
                 <%= search_form_for @search, url: posts_path do |f| %>
-                  <dt><%= f.text_field :title_cont ,placeholder: 'タイトルを入力...' %></dt>
-                  <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+                  <div class="input-group">
+                    <dt><%= f.text_field :title_cont ,placeholder: 'タイトルを入力...', class: "form-control" %></dt>
+                    <dd><%= f.submit ("検索") , class: "btn btn-dark"%></dd>
+                  </div>
                 <% end %>
               </li>
 
