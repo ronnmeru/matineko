@@ -70,3 +70,4 @@ gem 'jquery-rails'
 gem 'font-awesome-sass'
 gem 'ransack'
 gem 'dotenv-rails'
+gem "jquery-rails"

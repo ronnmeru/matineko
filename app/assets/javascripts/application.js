@@ -14,7 +14,21 @@
 //= require popper
 //= require bootstrap-sprockets
 
+//= require jquery
+//= require jquery_ujs
+
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+
 //= require_tree .
+/*global $*/
+
+$(function() {
+    $('.carousel-inner').slick({
+        prevArrow: '<i class="fas fa-arrow-alt-circle-left"></i>',
+        nextArrow: '<i class="fas fa-arrow-alt-circle-right"></i>',
+        dots: true,
+        autoplay: true,
+    });
+});
+
