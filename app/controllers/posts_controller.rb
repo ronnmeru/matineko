@@ -6,17 +6,19 @@ class PostsController < ApplicationController
 
  def index
    @post_new = Post.new
-   @post = @search_post || Post.all
+   @post = @search_post || Post.all.page(params[:page]).per(5)
    @user = current_user
    @tags = ActsAsTaggableOn::Tag.all
     # タグの一覧表示
 
    if params[:tag]
-      @post = Post.tagged_with(params[:tag])
+      @post = Post.tagged_with(params[:tag]).page(params[:page]).per(10)
       # タグ検索時にそのタグずけしているものを表示
    else
-      @post = Post.all
+      @post = @search_post.page(params[:page]).per(5) || Post.all.page(params[:page]).per(5)
    end
+
+
  end
 
 
@@ -49,12 +51,13 @@ class PostsController < ApplicationController
   end
 
   def show
-   @post=Post.find(params[:id])
+   @post = Post.find(params[:id])
    @post_new = Post.new
    @user = @post.user
    @comments = @post.comments  #投稿詳細に関連付けてあるコメントを全取得
    @comment = current_user.comments.new  #投稿詳細画面でコメントの投稿を行うので、formのパラメータ用にCommentオブジェクトを取得
   end
+
 
 
   def edit

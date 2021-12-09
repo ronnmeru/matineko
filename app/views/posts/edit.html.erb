@@ -14,18 +14,20 @@
   </div>
   <% end %>
 
-      <p>投稿画像</p>
+      <p>Image</p>
       <%= f.attachment_field :image %>
-      <p>タイトル</p>
-      <%= f.text_field :title %>
-      <p>イントロダクション</p>
-      <%= f.text_area :content %>
+      <p>Title</p>
+      <%= f.text_field :title, class: "form-control" %>
+      <p>Introduction</p>
+      <%= f.text_area :content, class: "form-control" %>
+      <p>tag</p>
+       <%= f.text_field :tag_list, value: @post.tag_list.join(','), class: "form-control" %>
 
- <div> <%= f.submit 'Update Book',class:"btn btn-success" %></div>
+ <div> <%= f.submit 'Update Post',class:"btn btn-success" %></div>
 <% end %>
  <%= link_to "Show", post_path(@post.id) %>
- <%= link_to "Back",  post_path(@post.id) %>
+ <%= link_to "Back",  posts_path %>
      </div>
-    </div>
+  </div>
 </div>
 
