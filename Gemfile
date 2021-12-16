@@ -50,10 +50,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-byebug'
-  gem 'dotenv-rails'
-  group :production do
-  gem 'mysql2'
-end
 end
 
 group :test do
@@ -77,3 +73,7 @@ gem 'ransack'
 gem 'dotenv-rails'
 gem "jquery-rails"
 gem 'kaminari'
+gem 'dotenv-rails'
+group :production do
+gem 'mysql2'
+end

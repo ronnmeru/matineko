@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def index
    @user = current_user
    @post_new = Post.new
-   @users= User.all
+   @users= User.all.where(is_deleted: false)
   end
 
   def show
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
        flash[:update]='You have updated user successfully.'
        redirect_to user_path(@user.id)
     else
-       @user_each=Book.all
+       @user_each=post.all
        render action: :edit
     end
   end
