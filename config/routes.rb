@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   post 'complete' => 'posts#complete'
   resources :likes,only:[:create,:destroy]
   resources :posts do  #postsコントローラへのルーティング
-    resources :comments, only: [:index,:destroy,:create]  #commentsコントローラへのルーティング
+    resources :comments, only: [:index,:create]  #commentsコントローラへのルーティング
   end
   post 'like/:id' => 'likes#create', as: 'create_like'
   delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
